@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para ti 💛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#f3e6fb; --bg2:#fde0e6; --bg3:#ffe9d2;
+  --ink:#3b2350; --soft:#6e5483;
+  --paper:rgba(255,255,255,.62); --line:rgba(120,70,160,.18);
+  --accent:#d9446f; --glow:#f6b64a; --pill:rgba(255,255,255,.75);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg1:#1d1430; --bg2:#2b1838; --bg3:#3a2030;
+    --ink:#f6eaff; --soft:#cdb8e0;
+    --paper:rgba(255,255,255,.07); --line:rgba(220,190,255,.2);
+    --accent:#ff7aa2; --glow:#ffc861; --pill:rgba(255,255,255,.1);
+  }
+}
+:root[data-theme="dark"]{
+  --bg1:#1d1430; --bg2:#2b1838; --bg3:#3a2030;
+  --ink:#f6eaff; --soft:#cdb8e0;
+  --paper:rgba(255,255,255,.07); --line:rgba(220,190,255,.2);
+  --accent:#ff7aa2; --glow:#ffc861; --pill:rgba(255,255,255,.1);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; color:var(--ink);
+  font-family:"Nunito",system-ui,sans-serif; font-size:1.06rem; line-height:1.7;
+  background-color:var(--bg2);
+  background-image:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));
+  background-attachment:fixed;
+}
+main{max-width:34rem; margin:0 auto; padding:2.5rem 1.25rem 3.5rem; text-align:center}
+
+.heart{
+  position:relative; width:7.5rem; height:7.5rem; margin:0 auto 1.25rem;
+  border:0; border-radius:50%; background:transparent; cursor:pointer; padding:0;
+}
+.heart::before{
+  content:""; position:absolute; inset:-1.4rem; border-radius:50%;
+  background:radial-gradient(circle,var(--glow) 0%,transparent 65%); opacity:.55;
+}
+.heart svg{position:relative; width:100%; height:100%; animation:pulse 2.6s ease-in-out infinite}
+.heart:active svg{transform:scale(.92)}
+.heart:focus-visible,.again:focus-visible{outline:3px solid var(--accent); outline-offset:6px}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+
+h1{
+  font-family:"Caveat",cursive,serif; font-weight:600;
+  font-size:clamp(2.6rem,10vw,3.4rem); line-height:1.05; margin:0 0 .25rem;
+}
+.hint{margin:0 0 1.75rem; color:var(--soft); font-size:.95rem}
+
+.letter{
+  background:var(--paper); border:1px solid var(--line); border-radius:1.75rem;
+  padding:1.75rem 1.5rem; text-align:left; backdrop-filter:blur(6px);
+}
+.letter p{margin:0 0 1.1rem}
+.letter p:last-child{margin:0; font-weight:700}
+
+.qualities{
+  list-style:none; margin:1.75rem 0 0; padding:0;
+  display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center;
+}
+.qualities li{
+  background:var(--pill); border:1px solid var(--line); border-radius:999px;
+  padding:.35rem 1rem; font-weight:600; font-size:.98rem;
+}
+
+.reminder{margin:2.25rem 0 0}
+.reminder q{
+  display:block; min-height:4.2rem; quotes:"“" "”";
+  font-family:"Caveat",cursive,serif; font-size:1.75rem; line-height:1.25;
+  transition:opacity .35s ease;
+}
+.reminder q.out{opacity:0}
+.again{
+  margin-top:1rem; border:0; cursor:pointer; font:inherit; font-weight:700;
+  color:#fff; background:var(--accent); border-radius:999px; padding:.7rem 1.6rem;
+}
+.again:active{transform:scale(.97)}
+
+.fl{
+  position:fixed; z-index:20; pointer-events:none; font-size:1.5rem;
+  animation:up 2.2s ease-out forwards;
+}
+@keyframes up{
+  from{transform:translate(0,0) scale(.6); opacity:1}
+  to{transform:translate(var(--dx),-180px) scale(1.25); opacity:0}
+}
+@media (prefers-reduced-motion: reduce){
+  .heart svg{animation:none}
+  .reminder q{transition:none}
+}
+</style>
+</head>
+<body>
+<main>
+  <button class="heart" id="heart" aria-label="Toca el corazón para recibir un abrazo">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffb347"/>
+          <stop offset="1" stop-color="#ff6f91"/>
+        </linearGradient>
+      </defs>
+      <path d="M50 88C20 66 8 49 8 33 8 20 18 11 30 11c8 0 16 4 20 12 4-8 12-12 20-12 12 0 22 9 22 22 0 16-12 33-42 55z" fill="url(#g)"/>
+    </svg>
+  </button>
+
+  <h1>Esto es para ti</h1>
+  <p class="hint">Toca el corazón. Es un abrazo.</p>
+
+  <section class="letter" aria-label="Mensaje">
+    <p>Quiero que sepas algo: no eres una fracasada ni una inútil. Eres una persona alegre, genial, elegante y bonita, con un carisma que ilumina a todos los que están cerca de ti.</p>
+    <p>Que el básquet no salga como quieres hoy no define quién eres. Mejorar toma tiempo, y cada práctica suma aunque no lo notes.</p>
+    <p>Y si a veces te pesa estar cerca de esa persona, es normal. Eso no le quita ni un poquito a tu valor.</p>
+    <p>Tienes un corazón hermoso. Trátate con el mismo cariño con el que tratas a los demás. 💛</p>
+  </section>
+
+  <ul class="qualities" aria-label="Lo que eres">
+    <li>Alegre</li>
+    <li>Buena persona</li>
+    <li>Genial</li>
+    <li>Elegante</li>
+    <li>Bonita</li>
+    <li>Carismática</li>
+  </ul>
+
+  <div class="reminder">
+    <q id="quote" aria-live="polite">Un mal día de práctica no borra todo lo que has avanzado.</q>
+    <button class="again" id="again">Otro recordatorio</button>
+  </div>
+</main>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var heart = document.getElementById("heart");
+  var quote = document.getElementById("quote");
+  var again = document.getElementById("again");
+  var emojis = ["💛","🧡","💗","✨"];
+  var phrases = [
+    "Un mal día de práctica no borra todo lo que has avanzado.",
+    "Sobrepensar no es la verdad, es solo ruido. Tú vales mucho más que eso.",
+    "Eres de esas personas que hacen sentir bien a los demás.",
+    "Ir a tu ritmo también es avanzar.",
+    "Hoy puedes ser amable contigo, aunque sea un ratito.",
+    "Tu alegría se nota, y alegra a quienes te rodean."
+  ];
+  var i = 0;
+
+  function burst(){
+    if (reduce) return;
+    var r = heart.getBoundingClientRect();
+    for (var n = 0; n < 10; n++){
+      var s = document.createElement("span");
+      s.className = "fl";
+      s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      s.style.left = (r.left + r.width / 2 - 12 + (Math.random() * 60 - 30)) + "px";
+      s.style.top = (r.top + r.height / 2) + "px";
+      s.style.setProperty("--dx", (Math.random() * 120 - 60) + "px");
+      s.style.animationDelay = (Math.random() * 0.35) + "s";
+      s.addEventListener("animationend", function(){ this.remove(); });
+      document.body.appendChild(s);
+    }
+  }
+
+  function next(){
+    i = (i + 1) % phrases.length;
+    quote.classList.add("out");
+    setTimeout(function(){
+      quote.textContent = phrases[i];
+      quote.classList.remove("out");
+    }, reduce ? 0 : 350);
+  }
+
+  heart.addEventListener("click", burst);
+  again.addEventListener("click", function(){ burst(); next(); });
+})();
+</script>
+</body>
+</html>
